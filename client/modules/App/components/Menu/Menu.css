@@ -1,0 +1,59 @@
+.menu h1 {
+  float: left;
+}
+
+.menu {
+  overflow: hidden;
+  zoom:1;
+}
+
+
+.menu h1 span {
+  padding: 16px;
+}
+
+.menu img {
+  width: 60px;
+  vertical-align: middle;
+}
+
+
+.menu__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: auto;
+  height: 100%;
+}
+
+.menu__nav li {
+  padding:36px 16px;
+  height: 100%;
+}
+
+.menu__nav li:hover {
+  background-color: rgba(255,255,255,0.2);
+
+}
+
+.menu__nav li:hover a {
+  color: rgba(250,250,250, .3);
+}
+
+.menu__nav a {
+  color: #e8f2ff;
+  text-decoration: none;
+}
+
+.site-title {
+  font-size: 16px;
+  display: inline-block;
+  padding: 16px;
+  width: 30%;
+}
+
+.site-title a {
+  text-decoration: none;
+  color: #FFF;
+}

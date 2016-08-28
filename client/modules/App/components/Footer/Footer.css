@@ -1,7 +1,7 @@
 .footer{
   text-align: center;
-  padding: 56px 0;
-  background-size: cover;
+  padding: 0 0;
+  background-color: #0b97c4;
 }
 
 .footer p{
@@ -14,4 +14,32 @@
   color: #FFF;
   text-decoration: none;
   font-weight: 700;
+}
+
+
+.language-switcher {
+  background: linear-gradient(to left, transparent,  rgba(250,250,250,.2));
+}
+
+.language-switcher ul {
+  list-style: none;
+  margin: auto;
+  text-align: right;
+}
+
+.language-switcher li {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.language-switcher span{
+  color: rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+.selected {
+  border-bottom: 1px solid #fff;
 }
