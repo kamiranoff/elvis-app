@@ -17,8 +17,7 @@
     "lint": "eslint client server"
   },
   "pre-commit": [
-    "lint",
-    "test"
+    "lint"
   ],
   "repository": {
     "type": "git",
@@ -81,6 +80,7 @@
     "eventsource-polyfill": "^0.9.6",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "isomorphic-style-loader": "^1.0.0",
     "jsdom": "^9.2.1",
     "json-loader": "^0.5.4",
     "mock-css-modules": "^1.0.0",
@@ -92,7 +92,10 @@
     "postcss-cssnext": "^2.6.0",
     "postcss-focus": "^1.0.0",
     "postcss-loader": "^0.9.1",
+    "postcss-mixins": "^5.2.0",
+    "postcss-nested": "^1.0.0",
     "postcss-reporter": "^1.3.3",
+    "postcss-simple-vars": "^3.0.0",
     "pre-commit": "^1.1.3",
     "react-addons-test-utils": "^15.1.0",
     "react-hot-loader": "^3.0.0-beta.2",

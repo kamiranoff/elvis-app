@@ -1,11 +1,10 @@
 .header {
-  background-color: #0b97c4;
+  background-color: $home2;
   background-size: cover;
 }
 
 .add-post-button {
   display: inline-block;
-  color: #FFF;
   background: #03A9F4;
   padding: 8px 16px;
   text-decoration: none;

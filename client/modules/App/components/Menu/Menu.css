@@ -1,5 +1,6 @@
 .menu h1 {
   float: left;
+  color: $home6;
 }
 
 .menu {
@@ -9,11 +10,11 @@
 
 
 .menu h1 span {
-  padding: 16px;
+  padding: 1rem;
 }
 
 .menu img {
-  width: 60px;
+  width: 4rem;
   vertical-align: middle;
 }
 
@@ -22,38 +23,29 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  align-content: center;
   list-style: none;
   margin: auto;
-  height: 100%;
+  height: 6rem;
 }
 
-.menu__nav li {
-  padding:36px 16px;
-  height: 100%;
-}
-
-.menu__nav li:hover {
-  background-color: rgba(255,255,255,0.2);
-
-}
-
-.menu__nav li:hover a {
-  color: rgba(250,250,250, .3);
-}
 
 .menu__nav a {
-  color: #e8f2ff;
+  color: $home4;
   text-decoration: none;
+  padding:1rem;
+  display: block;
+  height: 100%;
 }
 
 .site-title {
-  font-size: 16px;
+  font-size: 2rem;
   display: inline-block;
-  padding: 16px;
+  padding: 1rem;
   width: 30%;
 }
 
 .site-title a {
   text-decoration: none;
-  color: #FFF;
+  color: $home3;
 }
