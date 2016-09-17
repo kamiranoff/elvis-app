@@ -8,10 +8,8 @@ import styles from './Header.css';
 
 export function Header(props, context) {
   return (
-    <div>
-      <div className={styles.header}>
-        <Menu />
-      </div>
+    <div className={styles.header}>
+      <Menu />
       <div className={styles.content}>
         {
           context.router.isActive('/posts', true)

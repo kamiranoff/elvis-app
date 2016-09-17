@@ -1,16 +1,30 @@
 .menu h1 {
   float: left;
-  color: $home6;
+  color: #fff;
 }
 
 .menu {
   overflow: hidden;
   zoom:1;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+
+  .site-title {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem;
+    width: 30%;
+  }
 }
 
 
 .menu h1 span {
   padding: 1rem;
+  font-family: $fontPrimary;
 }
 
 .menu img {
@@ -31,21 +45,9 @@
 
 
 .menu__nav a {
-  color: $home4;
-  text-decoration: none;
   padding:1rem;
   display: block;
   height: 100%;
 }
 
-.site-title {
-  font-size: 2rem;
-  display: inline-block;
-  padding: 1rem;
-  width: 30%;
-}
 
-.site-title a {
-  text-decoration: none;
-  color: $home3;
-}

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: arvo-bold;
+  src: url('./../fonts/Arvo/Arvo-Bold.ttf');
+}
+
+@font-face {
+  font-family: arvo-regular;
+  src: url('./../fonts/Arvo/Arvo-Regular.ttf');
+}

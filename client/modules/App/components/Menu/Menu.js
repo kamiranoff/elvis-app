@@ -12,14 +12,14 @@ const Menu = () => {
 
         <Link to="/">
           <img src={logo} alt="logo" />
-          <FormattedMessage id="siteTitle" />
+          <FormattedMessage
+            id="siteTitle"
+          />
         </Link>
       </h1>
 
       <ul className={styles.menu__nav}>
         <li><Link to="/posts"> Blog </Link></li>
-        <li><a href="http://www.kevinamiranoff.com" target="_blank"> portfolio </a></li>
-        <li><a href="http://dev.kevinamiranoff.com" target="_blank"> Marvel encyclopedia </a></li>
       </ul>
     </nav>
   );

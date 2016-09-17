@@ -1,6 +1,10 @@
 .header {
-  background-color: $home2;
-  background-size: cover;
+  background-color: #5890AD;
+  font-family: $fontPrimary;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top:0;
+  width: 100%;
 }
 
 .add-post-button {

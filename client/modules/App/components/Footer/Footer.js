@@ -10,8 +10,10 @@ export function Footer(props) {
   );
   return (
     <div className={styles.footer}>
-      <p>&copy; 2016 &middot; Hashnode &middot; LinearBytes Inc.</p>
-      <p><FormattedMessage id="twitterMessage" /> : <a href="https://twitter.com/@mern_io" target="_Blank">@mern_io</a></p>
+      <ul>
+        <li><a href="http://www.kevinamiranoff.com" target="_blank"> portfolio </a></li>
+        <li><a href="http://dev.kevinamiranoff.com" target="_blank"> Marvel encyclopedia </a></li>
+      </ul>
       <div className={styles['language-switcher']}>
 
         <ul>

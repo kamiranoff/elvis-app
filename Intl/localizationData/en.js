@@ -2,6 +2,7 @@ export default {
   locale: 'en',
   messages: {
     siteTitle: `Kevin's Blog`,
+    webDevelopment: 'WebDevelopment',
     addPost: 'Add Post',
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',
