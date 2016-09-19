@@ -1,4 +1,4 @@
-#Trying a few things....
+# Making an React/Redux Isomorphic App about Elvis
 
 #See below for original boilerplate and description.
 
