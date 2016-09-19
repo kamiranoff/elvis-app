@@ -1,0 +1,7 @@
+.FullScreenImage {
+  max-width: 100%;
+  width: 100%;
+  background-image: url('../../../../client/assets/images/backgrounds/elvis1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

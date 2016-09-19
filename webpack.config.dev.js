@@ -68,11 +68,14 @@ module.exports = {
     }),
     vars({
       variables() {
-        const file = './client/assets/styles/colors.js';
-
-        delete require.cache[path.join(__dirname, file)];
-
-        return require(file);
+        const colors = './client/assets/styles/colors.js';
+        const fonts = './client/assets/styles/fonts.js';
+        delete require.cache[path.join(__dirname, colors)];
+        delete require.cache[path.join(__dirname, fonts)];
+        return {
+          ...require(colors),
+          ...require(fonts),
+        };
       }
     }),
   ],

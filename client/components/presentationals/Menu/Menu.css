@@ -1,0 +1,28 @@
+.menu h1 {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem;
+
+  @media screen and (min-width: 768px) {
+    width: 50%;
+  }
+
+}
+
+.menu {
+  overflow: hidden;
+  zoom:1;
+
+
+  .site-title {
+
+  }
+}
+
+.menu img {
+  vertical-align: middle;
+}
+
+
+

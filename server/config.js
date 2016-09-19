@@ -1,5 +1,5 @@
 const config = {
-  mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/blog',
+  mongoURL: process.env.MONGO_URL || 'mongodb://localhost:27017/elvisapp',
   port: process.env.PORT || 8000,
 };
 

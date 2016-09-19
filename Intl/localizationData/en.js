@@ -1,7 +1,8 @@
 export default {
   locale: 'en',
   messages: {
-    siteTitle: `Kevin's Blog`,
+    siteTitle: `Elvis Song App`,
+    webDevelopment: 'WebDevelopment',
     addPost: 'Add Post',
     switchLanguage: 'Switch Language',
     twitterMessage: 'We are on Twitter',

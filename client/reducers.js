@@ -4,13 +4,11 @@
 import { combineReducers } from 'redux';
 
 // Import Reducers
-import app from './modules/App/AppReducer';
-import posts from './modules/Post/PostReducer';
-import intl from './modules/Intl/IntlReducer';
+import intl from './old.modules/Intl/IntlReducer';
+import songs from './reducers/songs';
 
 // Combine all reducers into one root reducer
 export default combineReducers({
-  app,
-  posts,
   intl,
+  songs,
 });
