@@ -1,21 +1,25 @@
 import React, { PropTypes } from 'react';
 
-import SongsListContainer from '../../containers/SongsListContainer';
 import Song from '../Song/Song';
+import Header from './../Header/Header';
 
 import styles from './Home.css';
 
 const Home = ({ song }) => {
   return (
     <section className={styles.home}>
-      <SongsListContainer />
+      <Header />
       <Song song={song} />
     </section>
   );
 };
 
 Home.propTypes = {
-  song: PropTypes.object.isRequred,
+  song: PropTypes.object.isRequired,
+};
+
+Home.defaultProps = {
+  song: {},
 };
 
 export default Home;

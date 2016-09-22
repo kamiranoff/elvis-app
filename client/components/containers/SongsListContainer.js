@@ -8,11 +8,27 @@ class SongsListContainer extends Component {
   constructor(props) {
     super(props);
     this.props.fetchSongs();
+    this.state = {
+      expanded: true,
+    };
+
+    this.expandSongList = this.expandSongList.bind(this);
+  }
+
+  expandSongList() {
+    this.setState({
+      expanded: !this.state.expanded,
+    });
   }
 
   render() {
     return (
-      <SongsList songsTitle={this.props.songsTitle} fetchSong={this.props.fetchSong} />
+      <SongsList
+        songsTitle={this.props.songsTitle}
+        fetchSong={this.props.fetchSong}
+        expandSongList={this.expandSongList}
+        expanded={this.state.expanded}
+      />
     );
   }
 }
