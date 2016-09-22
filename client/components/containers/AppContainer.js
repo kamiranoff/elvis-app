@@ -3,12 +3,12 @@ import React, { PropTypes } from 'react';
 import HelmetContainer from '../containers/HelmetContainer';
 import LayoutContainer from '../containers/LayoutContainer';
 
-const AppContainer = () => {
+const AppContainer = ({ children }) => {
   return (
     <div>
       <LayoutContainer>
         <HelmetContainer />
-        {this.props.children}
+        {children}
       </LayoutContainer>
     </div>
   );

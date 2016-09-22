@@ -43,10 +43,10 @@ export function fetchSongs() {
   };
 }
 
-export function fetchSong(songTitle) {
+export function fetchSong(songId) {
   return dispatch => {
     dispatch(requestSong());
-    return callApi(`${SONGS}/${songTitle}`).then(res => {
+    return callApi(`${SONGS}/${songId}`).then(res => {
       dispatch(receiveSong(res.song));
     });
   };

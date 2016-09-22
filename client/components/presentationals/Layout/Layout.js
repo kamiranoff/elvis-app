@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react';
 
-import Header from './../Header/Header';
-import Footer from '../Footer/Footer';
+import SongsListContainer from '../../containers/SongsListContainer';
+import FullScreenImage from '../FullScreenImage/FullScreenImage';
 
-const Layout = ({ currentPageName, children, intl, switchLanguage }) => {
+import styles from './Layout.css';
+
+const Layout = ({ children }) => {
   return (
-    <div>
-      <Header />
-      <h1 className="Layout__title">{currentPageName}</h1>
-      {children}
-      <Footer intl={intl} switchLanguage={switchLanguage} />
+    <div className={styles.Layout}>
+      <FullScreenImage />
+      <div className={styles.Layout__container}>
+        <SongsListContainer />
+          {children}
+      </div>
     </div>
   );
 };

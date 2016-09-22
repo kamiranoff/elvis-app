@@ -6,6 +6,6 @@ const router = new Router();
 router.route('/songs').get(SongController.getSongs);
 
 // Get one post by cuid
-router.route('/songs/:title').get(SongController.getSong);
+router.route('/songs/:id').get(SongController.getSong);
 
 export default router;

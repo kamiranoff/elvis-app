@@ -1,6 +1,6 @@
 .header {
   background-color: $primary;
-  border-bottom: 1px solid #efefef;
+  width: 100%;
 }
 
 .add-post-button {
