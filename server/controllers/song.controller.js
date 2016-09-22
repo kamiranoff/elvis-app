@@ -24,7 +24,7 @@ export function getSongs(req, res) {
  * @returns void
  */
 export function getSong(req, res) {
-  Song.findOne({ title: req.params.title }).exec((err, song) => {
+  Song.findOne({ _id: req.params.id }).exec((err, song) => {
     if (err) {
       res.status(500).send(err);
     }
