@@ -1,25 +1,22 @@
 import React, { PropTypes } from 'react';
 
-import Song from '../Song/Song';
+import SongContainer from '../../containers/SongContainer';
 import Header from './../Header/Header';
 
 import styles from './Home.css';
 
-const Home = ({ song }) => {
+const Home = ({ expanded }) => {
   return (
-    <section className={styles.home}>
+    <section className={`${styles.home} ${expanded ? styles.expanded : null}`}>
       <Header />
-      <Song song={song} />
+      <SongContainer />
     </section>
   );
 };
 
 Home.propTypes = {
-  song: PropTypes.object.isRequired,
+  expanded: PropTypes.bool.isRequired,
 };
 
-Home.defaultProps = {
-  song: {},
-};
 
 export default Home;

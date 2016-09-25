@@ -1,0 +1,9 @@
+.Search {
+  padding: 2rem;
+  display: block;
+  width: 100%;
+  background: $bss2;
+  border: none;
+  color: $color1;
+  font-size: 1.5rem;
+}
