@@ -10,13 +10,18 @@ import createLogger from 'redux-logger';
 
 export function configureStore(initialState = {}) {
   // Middleware and store enhancers
-  const logger = createLogger();
-  const enhancers = [
-    applyMiddleware(thunk, promise, logger),
+
+  let enhancers = [
+    applyMiddleware(thunk, promise),
   ];
+
 
   if (process.env.CLIENT && process.env.NODE_ENV === 'development') {
     // Enable DevTools only when rendering on client and during development.
+    const logger = createLogger();
+    enhancers = [
+      applyMiddleware(thunk, promise, logger),
+    ];
     enhancers.push(window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument());
   }
 
