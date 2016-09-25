@@ -11,7 +11,7 @@ const mapStateToProps = ({ songs: { song }, global: { expanded } }) => {
 };
 
 Home.propTypes = {
-  songs: PropTypes.object.isRequired,
+  song: PropTypes.object.isRequired,
   expanded: PropTypes.bool.isRequired,
 };
 
