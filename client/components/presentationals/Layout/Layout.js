@@ -5,12 +5,12 @@ import FullScreenImage from '../FullScreenImage/FullScreenImage';
 
 import styles from './Layout.css';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, dispatch }) => {
   return (
     <div className={styles.Layout}>
       <FullScreenImage />
       <div className={styles.Layout__container}>
-        <SongsListContainer />
+        <SongsListContainer dispatch={dispatch} />
           {children}
       </div>
     </div>
@@ -19,9 +19,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node,
-  currentPageName: PropTypes.string.isRequired,
-  intl: PropTypes.object.isRequired,
-  switchLanguage: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 Layout.defaultProps = {

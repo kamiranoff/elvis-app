@@ -1,5 +1,14 @@
 .home {
-  flex-basis: 108%;
-  width: 75%;
+  position: absolute;
+  left:0rem;
+  top:0;
+  width: 100%;
+  transition: .3s left ease-in-out, .3s width ease-in-out;
+
+  &.expanded {
+    width: calc(100% - 30rem);
+    left:30rem;
+  }
 }
+
 

@@ -27,18 +27,26 @@ const requestSongs = () => {
   };
 };
 
-const receiveSongs = data => {
+const receiveSongs = songs => {
   return {
     type: RECEIVE_SONGS,
-    data,
+    songs,
   };
 };
 
-export function fetchSongs() {
+export function fetchSongs(fields, filter) {
+  let apiString = SONGS;
+  if (fields) {
+    apiString = `${SONGS}?fields=${fields}`;
+  }
+  if (fields && filter) {
+    apiString = `${SONGS}?fields=${fields}&filter=${filter}`;
+  }
+
   return dispatch => {
     dispatch(requestSongs());
-    return callApi(SONGS).then(res => {
-      dispatch(receiveSongs(res.songsTitle));
+    return callApi(apiString).then(songs => {
+      dispatch(receiveSongs(songs));
     });
   };
 }
@@ -46,8 +54,18 @@ export function fetchSongs() {
 export function fetchSong(songId) {
   return dispatch => {
     dispatch(requestSong());
-    return callApi(`${SONGS}/${songId}`).then(res => {
-      dispatch(receiveSong(res.song));
+    return callApi(`${SONGS}/${songId}`).then(song => {
+      dispatch(receiveSong(song));
     });
   };
 }
+
+export function fetchRandomSong() {
+  return dispatch => {
+    dispatch(requestSong());
+    return callApi(`${SONGS}/random`).then(song => {
+      dispatch(receiveSong(song));
+    });
+  };
+}
+

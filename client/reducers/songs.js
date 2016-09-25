@@ -3,7 +3,7 @@ import {
   RECEIVE_SONGS,
   REQUEST_SONG,
   RECEIVE_SONG,
-  RESIZE,
+  SEARCH,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -12,6 +12,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
     case REQUEST_SONGS:
       return {
         ...state,
@@ -21,7 +22,7 @@ export default (state = initialState, action) => {
     case RECEIVE_SONGS:
       return {
         ...state,
-        songsTitle: action.data,
+        songs: action.songs,
       };
 
     case REQUEST_SONG:
@@ -36,10 +37,10 @@ export default (state = initialState, action) => {
         song: action.song,
       };
 
-    case RESIZE:
+    case SEARCH:
       return {
         ...state,
-        width: action.width,
+        searchTerm: action.term,
       };
 
     default:
