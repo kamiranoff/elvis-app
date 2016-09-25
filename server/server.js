@@ -35,6 +35,7 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 
 import songs from './api/song/routes/song.routes';
+import spotify from './api/spotify/routes/spotify.routes';
 import serverConfig from './config';
 
 // Set native promises as mongoose promise
@@ -56,7 +57,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 app.use('/api', songs);
-
+app.use('/api', spotify);
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();

@@ -1,31 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import VideoPlayer from '../presentationals/VideoPlayer/VideoPlayer';
 
-class VideoPlayerContainer extends Component {
-
-  componentWillReceiveProps(nextProps) {
-    this.video = {
-      url: `https://www.youtube.com/embed/${nextProps.videoId}`, //ES6 == 'https://www.youtube.com/embed/ + {videoId}'
-    };
-  }
-
-  render() {
-    return (
-      <VideoPlayer video={this.video} />
-    );
-  }
-}
+const VideoPlayerContainer = ({ videoId }) => {
+  return (
+    <VideoPlayer videoId={videoId} />
+  );
+};
 
 VideoPlayerContainer.propTypes = {
   videoId: PropTypes.string.isRequired,
 };
 
 VideoPlayerContainer.defaultProps = {
-  song: {
-    youtube_video_id: '',
-  },
   videoId: '',
 };
 

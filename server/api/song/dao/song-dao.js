@@ -1,10 +1,11 @@
+/* eslint-disable */
+// Problem with song defined before declaration
+
 import mongoose from 'mongoose';
 import Promise from 'bluebird';
 import songSchema from '../model/song-model';
 
 const log = require('log4js').getLogger('song-dao');
-
-const Song = mongoose.model('Song', songSchema);
 
 songSchema.statics.getAll = () => {
   return new Promise((resolve, reject) => {
@@ -73,5 +74,7 @@ songSchema.statics.getRandomSong = () => {
     });
   });
 };
+
+const Song = mongoose.model('Song', songSchema);
 
 export default Song;

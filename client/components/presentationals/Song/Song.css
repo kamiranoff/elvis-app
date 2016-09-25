@@ -1,4 +1,4 @@
-.song {
+.Song {
   width: 100%;
   padding: 2rem;
   margin: 0 auto;
@@ -15,6 +15,16 @@
     }
   }
 
+  .songInfo {
+    margin: 2rem;
+    p {
+      display: inline-block;
+      line-height: 3rem;
+      margin: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
   .songDate {
     font-style: italic;
     color: $color1;
@@ -26,10 +36,11 @@
   }
 
   .songLyrics {
-    padding: 2rem 0;
+    padding: 2rem 10% 2rem 1rem;
     font-size: 1.8rem;
     line-height: 2.5rem;
     font-family: $fontSecondary;
+    text-align: left;
   }
 
   .writers {
@@ -38,7 +49,13 @@
 
   .icons {
     width: 3rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  &__VideoLyricsContainer{
+    display: flex;
+    position: relative;
   }
 
   @media screen and (min-width: 768px) {
@@ -51,5 +68,4 @@
       line-height: 3.5rem;
     }
   }
-
 }
