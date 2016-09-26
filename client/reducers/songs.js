@@ -8,6 +8,8 @@ import {
 
 const initialState = {
   loading: true,
+  songs: [],
+  song: {},
 };
 
 export default (state = initialState, action) => {

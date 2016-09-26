@@ -3,7 +3,6 @@ import spotifyApi from '../index';
 const ELVIS = '43ZHCT0cAZBISjO8DG9PnE';
 
 class SpotifyController {
-
   /**
    * Get one song
    * @param id
