@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
+import { debounce } from 'lodash';
 import YouTube from 'react-youtube';
-
 import styles from './VideoPlayer.css';
 
 class VideoPlayer extends Component {
@@ -9,6 +9,7 @@ class VideoPlayer extends Component {
     super(props);
     this.translation = 0;
     this._handleScroll = this._handleScroll.bind(this);
+    this._createTranslation = debounce(this._createTranslation.bind(this), 10);
     this.counter = 0;
   }
 
@@ -24,37 +25,43 @@ class VideoPlayer extends Component {
     }
   }
 
+  _createTranslation(ref, translation) {
+    const el = ref;
+    el.style.transform = `translateY(${translation}px)`;
+  }
+
   _handleScroll(event) {
     if (this.refs.videoPlayer) {
-      const playerFromTop = this.refs.videoPlayer.getBoundingClientRect().top;
+      const player = this.refs.videoPlayer;
+      const songContainerPosition = this.props.songContainerPosition;
+      const songContainerHeight = this.props.songContainerHeight;
       const scrollTop = event.srcElement.body.scrollTop;
-      const translation = Math.round(Math.min(20000, scrollTop / 3 - 200));
-      if (playerFromTop < 100) {
-        console.log(translation);
-        // this.refs.videoPlayer.style.transform = `translateY(${translation}px)`;
-        // this.refs.videoPlayer.style.position = 'fixed';
-        // this.refs.videoPlayer.style.right = 0;
-        // this.refs.videoPlayer.style.top = "105px";
+      const translation = scrollTop - songContainerPosition;
+
+      if (scrollTop > songContainerPosition && scrollTop < songContainerHeight + 300) {
+        this._createTranslation(player, translation);
+      } else if (scrollTop > songContainerHeight + 300) {
+        player.style.transform = 'translateY(0)px)';
       } else {
-        // this.refs.videoPlayer.style.transform = `translateY(-${translation}px)`;
+        player.style.transform = 'translateY(0px)';
       }
     }
   }
 
   render() {
-    console.log(this);
     const opts = {
       height: '600',
       width: '640',
       playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
+        autoplay: 1,
+        rel: 0,
+      },
     };
     const videoId = this.props.videoId;
-    console.log('here', this.props.videoId);
     if (!videoId) { // wait for video to load...
       return (<div>Loading</div>);
     }
+
     return (
       <div className={styles.VideoPlayer} ref="videoPlayer" style={{ transform: this.translation }}>
         <YouTube
@@ -68,12 +75,15 @@ class VideoPlayer extends Component {
 
 VideoPlayer.propTypes = {
   videoId: PropTypes.string.isRequired,
+  songContainerPosition: PropTypes.number.isRequired,
+  songContainerHeight: PropTypes.number.isRequired,
 };
 
 VideoPlayer.defaultProps = {
   videoId: '',
+  songContainerPosition: 0,
+  songContainerHeight: 0,
+
 };
 
-export
-default
-VideoPlayer;
+export default VideoPlayer;

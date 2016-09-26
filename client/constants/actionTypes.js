@@ -8,4 +8,5 @@ export const SEARCH = 'SEARCH';
 // GLOBAL
 export const RESIZE = 'RESIZE';
 export const EXPAND_MENU = 'EXPAND_MENU';
-
+export const ON_SCROLL = 'ON_SCROLL';
+export const GET_SONG_CONTAINER_POS = 'GET_SONG_CONTAINER_POS';
