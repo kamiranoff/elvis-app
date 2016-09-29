@@ -3,11 +3,13 @@ import {
   RESIZE,
   ON_SCROLL,
   GET_SONG_CONTAINER_POS,
+  SET_SPLASHSCREEN_VISIBILITY,
 } from '../constants/actionTypes';
 
 const initialState = {
   expanded: true,
   scroll: 0,
+  splashScreenVisibility: true,
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +27,12 @@ export default (state = initialState, action) => {
         songContainerHeight: action.height,
       };
 
+    case SET_SPLASHSCREEN_VISIBILITY:
+      return {
+        ...state,
+        splashScreenVisibility: action.visibility,
+      };
+
     case RESIZE:
       return {
         ...state,
@@ -36,6 +44,7 @@ export default (state = initialState, action) => {
         ...state,
         srcoll: action.scroll,
       };
+
     default:
       return state;
   }

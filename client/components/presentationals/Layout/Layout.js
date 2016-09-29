@@ -1,25 +1,27 @@
 import React, { PropTypes } from 'react';
 
 import SongsListContainer from '../../containers/SongsListContainer';
-import FullScreenImage from '../FullScreenImage/FullScreenImage';
+import FullScreenImageContainer from '../../containers/FullScreenImageContainer';
 
 import styles from './Layout.css';
 
-const Layout = ({ children, dispatch }) => {
-  return (
-    <div className={styles.Layout}>
-      <FullScreenImage />
-      <div className={styles.Layout__container}>
-        <SongsListContainer dispatch={dispatch} />
-          {children}
-      </div>
+const Layout = ({ children, dispatch, splashScreenVisibility }) => (
+  <div className={styles.Layout}>
+    <FullScreenImageContainer />
+    <div
+      className={!splashScreenVisibility ?
+        styles.Layout__container : styles.Layout__containerHidden}
+    >
+      <SongsListContainer dispatch={dispatch} />
+      {children}
     </div>
-  );
-};
+  </div>
+);
 
 Layout.propTypes = {
   children: PropTypes.node,
   dispatch: PropTypes.func.isRequired,
+  splashScreenVisibility: PropTypes.bool.isRequired,
 };
 
 Layout.defaultProps = {

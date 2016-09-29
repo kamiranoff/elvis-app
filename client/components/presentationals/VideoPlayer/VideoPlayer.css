@@ -1,6 +1,7 @@
 .VideoPlayer {
   flex-grow: 1;
   transition: .5s transform;
+  max-height:60rem;
 
   iframe {
     width: 100%;

@@ -59,7 +59,7 @@ class VideoPlayer extends Component {
     };
     const videoId = this.props.videoId;
     if (!videoId) { // wait for video to load...
-      return (<div>Loading</div>);
+      return null;
     }
 
     return (
