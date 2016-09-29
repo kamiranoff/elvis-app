@@ -4,12 +4,10 @@ import Layout from '../presentationals/Layout/Layout';
 
 import { switchLanguage } from '../../old.modules/Intl/IntlActions';
 
-const mapStateToProps = (store) => {
-  return {
-    currentPageName: '',
-    intl: store.intl,
-  };
-};
+const mapStateToProps = ({ intl, global: { splashScreenVisibility } }) => ({
+  intl,
+  splashScreenVisibility,
+});
 
 export default connect(mapStateToProps, {
   switchLanguage,

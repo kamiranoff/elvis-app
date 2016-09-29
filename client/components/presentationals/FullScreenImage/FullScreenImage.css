@@ -1,7 +1,32 @@
-.FullScreenImage {
-  max-width: 100%;
-  width: 100%;
-  background-image: url('../../../../client/assets/images/backgrounds/elvis1.jpg');
-  background-size: cover;
+.FullScreenImage,
+.FullScreenImageHidden {
+  align-items: stretch;
+  background-position: 50% 0;
   background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  text-align: center;
+  transition: 2s all ease;
+  width: 100%;
+
+  &__btn {
+    background: none;
+    border: hidden;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    background: rgba(0,0,0, 0.5);
+
+    img {
+      width: 25%;
+    }
+  }
+}
+
+.FullScreenImageHidden {
+  height: 0 !important;
+  visibility: hidden;
 }

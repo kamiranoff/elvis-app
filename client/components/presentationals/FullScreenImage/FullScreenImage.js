@@ -1,27 +1,25 @@
-import React from 'react';
-
+import React, { PropTypes } from 'react';
 // Import Style
 import styles from './FullScreenImage.css';
+import logoColor from './../../../assets/images/logo-color.svg';
 
-const FullScreenImage = () => {
-  const getWindowHeight = () => {
-    if (typeof window !== 'undefined') {
-      const w = window;
-      const d = document;
-      const e = d.documentElement;
-      const g = d.getElementsByTagName('body')[0];
-      const y = w.innerHeight || e.clientHeight || g.clientHeight;
-      return y;
-    }
-    return 0;
-  };
-  return (
-    <div
-      className={styles.FullScreenImage}
-      style={{ height: getWindowHeight() }}
-    >
-    </div>
-  );
+const FullScreenImage = ({ windowHeight, bg, splashScreenVisibility, handleClick }) => (
+  <div
+    className={!splashScreenVisibility ? styles.FullScreenImageHidden : styles.FullScreenImage}
+    style={{ height: windowHeight, backgroundImage: bg }}
+    onClick={handleClick}
+  >
+    <button className={styles.FullScreenImage__btn}>
+      <img src={logoColor} alt="logo" />
+    </button>
+  </div>
+);
+
+FullScreenImage.propTypes = {
+  windowHeight: PropTypes.number.isRequired,
+  bg: PropTypes.string.isRequired,
+  splashScreenVisibility: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default FullScreenImage;

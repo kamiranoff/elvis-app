@@ -1,3 +1,7 @@
 .Layout__container {
   position: relative;
+
+  &Hidden {
+    display: none;
+  }
 }

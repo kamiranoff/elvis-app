@@ -55,9 +55,10 @@ app.use(log4js.connectLogger(log4js.getLogger('http'), { level: 'auto' }));
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist')));
-
+app.use('/elvis-bg', Express.static(path.join(__dirname, '..', 'client/assets/images/backgrounds/elvis-bg')));
 app.use('/api', songs);
 app.use('/api', spotify);
+
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
