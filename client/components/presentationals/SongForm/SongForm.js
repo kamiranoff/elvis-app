@@ -64,8 +64,7 @@ const SongForm = ({ handleSubmit, handleChange, song, error }) => (
       />
     </label>
     <p>{error}</p>
-    <button type="submit">
-      Edit Song
+    <button className={styles.SongForm__submitBtn} type="submit">
       <img src={loader} role="presentation" />
     </button>
   </form>
