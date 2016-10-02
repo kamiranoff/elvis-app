@@ -75,6 +75,23 @@ songSchema.statics.getRandomSong = () => {
   });
 };
 
+songSchema.statics.updateSong = (song) => {
+  log.debug('update Song', song);
+  return new Promise((resolve, reject) => {
+    const _query = { _id: song.songId };
+    Song.findOneAndUpdate(_query, song, { new: true }).exec(
+      (err, song) => {
+        if (err) {
+          reject(err);
+          console.log(err);
+        } else {
+          console.log(song);
+          resolve(song);
+        }
+      });
+  });
+};
+
 const Song = mongoose.model('Song', songSchema);
 
 export default Song;
