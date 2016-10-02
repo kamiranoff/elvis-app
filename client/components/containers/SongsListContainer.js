@@ -10,10 +10,15 @@ class SongsListContainer extends Component {
     super(props);
     this.props.fetchSongs('title');
     this.expandSongList = this.expandSongList.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   expandSongList() {
     this.props.dispatch(expandMenu(!this.props.expanded));
+  }
+
+  handleClick(titleId) {
+    this.props.fetchSong(titleId);
   }
 
   render() {
@@ -23,6 +28,8 @@ class SongsListContainer extends Component {
         fetchSong={this.props.fetchSong}
         expandSongList={this.expandSongList}
         expanded={this.props.expanded}
+        handleClick={this.handleClick}
+        handleUpdateClick={this.handleUpdateClick}
       />
     );
   }
@@ -47,4 +54,8 @@ const mapStateToProps = ({ songs: { songs }, global: { expanded } }) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchSongs, fetchSong })(SongsListContainer);
+export default connect(mapStateToProps,
+  {
+    fetchSongs,
+    fetchSong,
+  })(SongsListContainer);

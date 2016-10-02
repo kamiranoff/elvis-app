@@ -10,6 +10,8 @@ class FullScreenImageContainer extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
+
+    this.randomBgImg = this.getRandomBackgroundImage();
   }
 
   getRandomBackgroundImage() {
@@ -37,7 +39,7 @@ class FullScreenImageContainer extends Component {
   render() {
     return (
       <FullScreenImage
-        bg={this.getRandomBackgroundImage()}
+        bg={this.randomBgImg}
         windowHeight={this.getWindowHeight()}
         onClick={this.handleClick}
         splashScreenVisibility={this.props.splashScreenVisibility}

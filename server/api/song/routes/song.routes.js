@@ -9,6 +9,8 @@ router.route('/songs').get(SongController.getAll);
 router.route('/songs/random/').get(SongController.getRandomSong);
 
 // Get one song by id
-router.route('/songs/:id').get(SongController.getSong);
+router.route('/songs/:id')
+  .get(SongController.getSong)
+  .put(SongController.updateSong);
 
 export default router;

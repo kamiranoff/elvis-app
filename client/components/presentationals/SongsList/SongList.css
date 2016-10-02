@@ -108,3 +108,12 @@
     color: $color1;
   }
 }
+
+.SongList__updateBtn {
+  width: 3rem;
+  border: hidden;
+  background: none;
+ text-align: right;
+  cursor: pointer;
+  margin-left: 2rem;
+}

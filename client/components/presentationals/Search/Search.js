@@ -16,6 +16,7 @@ const Search = ({ fields, fetchSongs }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <Debounce time="300" handler="onChange">
