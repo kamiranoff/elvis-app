@@ -5,6 +5,7 @@ import {
   RECEIVE_SONGS,
   REQUEST_SONG,
   RECEIVE_SONG,
+  TRIGGER_EDIT_MODE,
 } from '../constants/actionTypes';
 import { SONGS } from '../constants/api';
 
@@ -69,3 +70,9 @@ export function fetchRandomSong() {
   };
 }
 
+export const triggerEditMode = (editMode) => {
+  return {
+    type: TRIGGER_EDIT_MODE,
+    editMode,
+  };
+};

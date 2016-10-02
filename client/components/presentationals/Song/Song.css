@@ -62,6 +62,14 @@
     position: relative;
   }
 
+  &__updateBtn {
+    width: 4rem;
+    border: hidden;
+    background: none;
+    cursor: pointer;
+    margin-left: 2rem;
+  }
+
   @media screen and (min-width: 768px) {
     text-align: center;
 
