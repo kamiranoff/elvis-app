@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+
 import SongsList from '../presentationals/SongsList/SongsList';
 
 import { fetchSongs, fetchSong } from '../../actions/SongActions';
@@ -14,7 +15,7 @@ class SongsListContainer extends Component {
   }
 
   expandSongList() {
-    this.props.dispatch(expandMenu(!this.props.expanded));
+    this.props.expandMenu(!this.props.expanded);
   }
 
   handleClick(titleId) {
@@ -25,11 +26,10 @@ class SongsListContainer extends Component {
     return (
       <SongsList
         songs={this.props.songs}
-        fetchSong={this.props.fetchSong}
         expandSongList={this.expandSongList}
         expanded={this.props.expanded}
         handleClick={this.handleClick}
-        handleUpdateClick={this.handleUpdateClick}
+        documentHeight={this.props.documentHeight}
       />
     );
   }
@@ -39,18 +39,20 @@ SongsListContainer.propTypes = {
   songs: PropTypes.array.isRequired,
   fetchSongs: PropTypes.func.isRequired,
   fetchSong: PropTypes.func.isRequired,
-  dispatch: PropTypes.func.isRequired,
   expanded: PropTypes.bool.isRequired,
+  expandMenu: PropTypes.func.isRequired,
+  documentHeight: PropTypes.string.isRequired,
 };
 
 SongsListContainer.defaultProps = {
   songs: [],
 };
 
-const mapStateToProps = ({ songs: { songs }, global: { expanded } }) => {
+const mapStateToProps = ({ songs: { songs }, global: { expanded, documentHeight } }) => {
   return {
     songs,
     expanded,
+    documentHeight,
   };
 };
 
@@ -58,4 +60,5 @@ export default connect(mapStateToProps,
   {
     fetchSongs,
     fetchSong,
+    expandMenu,
   })(SongsListContainer);

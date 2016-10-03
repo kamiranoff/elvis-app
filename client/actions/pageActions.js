@@ -1,9 +1,16 @@
-import { ON_SCROLL, GET_SONG_CONTAINER_POS, SET_SPLASHSCREEN_VISIBILITY } from '../constants/actionTypes';
+import {
+  GET_SONG_CONTAINER_POS,
+  SET_SPLASHSCREEN_VISIBILITY,
+  ON_DOCUMENT_SIZE_CHANGED,
+} from '../constants/actionTypes';
+import Helpers from '../util/Helpers';
 
-export const onScroll = (scroll) => {
+export const setDocumentSize = (width, height) => {
+  Helpers.getDocumentSize(document);
   return {
-    type: ON_SCROLL,
-    scroll,
+    type: ON_DOCUMENT_SIZE_CHANGED,
+    documentWidth: width,
+    documentHeight: height,
   };
 };
 

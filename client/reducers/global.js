@@ -1,9 +1,9 @@
 import {
   EXPAND_MENU,
-  RESIZE,
   ON_SCROLL,
   GET_SONG_CONTAINER_POS,
   SET_SPLASHSCREEN_VISIBILITY,
+  ON_DOCUMENT_SIZE_CHANGED,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -33,10 +33,11 @@ export default (state = initialState, action) => {
         splashScreenVisibility: action.visibility,
       };
 
-    case RESIZE:
+    case ON_DOCUMENT_SIZE_CHANGED:
       return {
         ...state,
-        width: action.width,
+        documentWidth: action.documentWidth,
+        documentHeight: action.documentHeight,
       };
 
     case ON_SCROLL:

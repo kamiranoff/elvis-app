@@ -5,7 +5,7 @@ import SearchContainer from '../../containers/SearchContainer';
 
 import styles from './SongList.css';
 
-const SongsList = ({ songs, handleClick, expandSongList, expanded }) => (
+const SongsList = ({ songs, handleClick, expandSongList, expanded, documentHeight }) => (
   <section className={expanded ? `${styles.SongList} ${styles.expanded}` : `${styles.SongList}`}>
     <button
       className={
@@ -21,7 +21,7 @@ const SongsList = ({ songs, handleClick, expandSongList, expanded }) => (
       List of songs
       <span className={styles.SongList__count}>({songs.length})</span>
     </h3>
-    <ul>
+    <ul style={{ height: `calc(${documentHeight} - 123px` }}>
       {songs.map((song, index) => {
         return (
           <li
@@ -42,6 +42,7 @@ SongsList.propTypes = {
   expandSongList: PropTypes.func.isRequired,
   expanded: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
+  documentHeight: PropTypes.string.isRequired,
 };
 
 SongsList.defaultProps = {
