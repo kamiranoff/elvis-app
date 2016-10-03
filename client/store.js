@@ -8,6 +8,8 @@ import rootReducer from './reducers';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
+import pageMiddleware from './middlewares/pageMiddleware';
+
 export function configureStore(initialState = {}) {
   // Middleware and store enhancers
 
@@ -20,7 +22,7 @@ export function configureStore(initialState = {}) {
     // Enable DevTools only when rendering on client and during development.
     const logger = createLogger();
     enhancers = [
-      applyMiddleware(thunk, promise, logger),
+      applyMiddleware(thunk, promise, logger, pageMiddleware),
     ];
     enhancers.push(window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument());
   }

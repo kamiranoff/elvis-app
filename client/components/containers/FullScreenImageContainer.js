@@ -10,7 +10,6 @@ class FullScreenImageContainer extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
-
     this.randomBgImg = this.getRandomBackgroundImage();
   }
 

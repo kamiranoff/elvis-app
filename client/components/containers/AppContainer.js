@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import HelmetContainer from '../containers/HelmetContainer';
 import LayoutContainer from '../containers/LayoutContainer';
 
@@ -16,4 +15,4 @@ AppContainer.propTypes = {
   children: PropTypes.node,
 };
 
-export default connect(null, null)(LayoutContainer);
+export default AppContainer;
