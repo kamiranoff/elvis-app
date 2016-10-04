@@ -8,10 +8,10 @@
     "cover": "nyc npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "start": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=development nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "start:prod": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=production node index.js",
     "bs": "npm run clean && npm run build && npm run build:server && npm run start:prod",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
+    "build": "cross-env BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production webpack --config webpack.config.prod.babel.js",
+    "build:server": "cross-env BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production MONGO_URL=mongodb://192.168.0.38:27017/mern-test webpack --config webpack.config.server.js",
     "clean": "rimraf dist",
     "slate": "rimraf node_modules && npm install",
     "lint": "eslint client server"
@@ -25,6 +25,33 @@
   },
   "bugs": {
     "url": "https://github.com/Hashnode/mern-starter/issues"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "react-hot-loader/babel",
+      "array-includes"
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          "es2015",
+          "react",
+          "react-optimize",
+          {
+            "modules": false
+          },
+          "stage-0"
+        ],
+        "plugins": [
+          "array-includes"
+        ]
+      }
+    }
   },
   "homepage": "https://github.com/Hashnode/mern-starter#readme",
   "author": "Prashant Abhishek <prashant.abhishek7g@gmail.com>, Mayank Chandola <imayankchd@gmail.com>, Sandeep Panda <sandeep@hashnode.com>, Syed Fazle Rahman <fazle@hashnode.com>, Alkshendra Maurya <alkshendra@hashnode.com>",
@@ -58,6 +85,7 @@
     "react-youtube": "^7.1.1",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "sanitize-html": "^1.11.4",
     "sanitizer": "^0.1.3",
@@ -68,6 +96,7 @@
     "ava": "^0.15.2",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-array-includes": "^2.0.3",
     "babel-plugin-webpack-loaders": "^0.7.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",

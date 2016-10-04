@@ -38,7 +38,7 @@ module.exports = {
   },
 
   module: {
-    loaders
+    loaders,
   },
 
   plugins: [
@@ -76,7 +76,7 @@ module.exports = {
           ...require(colors),
           ...require(fonts),
         };
-      }
+      },
     }),
   ],
 };
