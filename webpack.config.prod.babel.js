@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
@@ -6,6 +7,8 @@ var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
 var cssnano = require('cssnano');
+const loaders = require('./webpack.loaders');
+var vars = require('postcss-simple-vars');
 
 module.exports = {
   devtool: 'hidden-source-map',
@@ -33,29 +36,8 @@ module.exports = {
       'node_modules',
     ],
   },
-
   module: {
-    loaders: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?localIdentName=[hash:base64]&modules&importLoaders=1!postcss-loader'),
-      }, {
-        test: /\.css$/,
-        include: /node_modules/,
-        loaders: ['style-loader', 'css-loader'],
-      }, {
-        test: /\.jsx*$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-      }, {
-        test: /\.(jpe?g|gif|png|svg)$/i,
-        loader: 'url-loader?limit=10000',
-      }, {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-    ],
+    loaders,
   },
 
   plugins: [
@@ -80,20 +62,31 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
-      }
+      },
     }),
   ],
 
   postcss: () => [
+    require('postcss-mixins'),
+    require('postcss-nested'),
     postcssFocus(),
     cssnext({
       browsers: ['last 2 versions', 'IE > 10'],
     }),
-    cssnano({
-      autoprefixer: false
-    }),
     postcssReporter({
       clearMessages: true,
+    }),
+    vars({
+      variables() {
+        const colors = './client/assets/styles/colors.js';
+        const fonts = './client/assets/styles/fonts.js';
+        delete require.cache[path.join(__dirname, colors)];
+        delete require.cache[path.join(__dirname, fonts)];
+        return {
+          ...require(colors),
+          ...require(fonts),
+        };
+      },
     }),
   ],
 };

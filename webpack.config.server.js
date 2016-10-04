@@ -41,11 +41,11 @@ module.exports = {
           plugins: [
             [
               'babel-plugin-webpack-loaders', {
-                'config': './webpack.config.babel.js',
-                "verbose": false
-              }
-            ]
-          ]
+              config: './webpack.config.babel.js',
+              verbose: false,
+            },
+            ],
+          ],
         },
       }, {
         test: /\.json$/,
