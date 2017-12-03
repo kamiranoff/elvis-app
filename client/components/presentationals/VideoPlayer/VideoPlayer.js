@@ -35,9 +35,8 @@ class VideoPlayer extends Component {
       const player = this.refs.videoPlayer;
       const songContainerPosition = this.props.songContainerPosition;
       const songContainerHeight = this.props.songContainerHeight;
-      const scrollTop = event.srcElement.body.scrollTop;
+      const scrollTop = event.srcElement.scrollingElement.scrollTop;
       const translation = scrollTop - songContainerPosition;
-
       if (scrollTop > songContainerPosition && scrollTop < songContainerHeight + 300) {
         this._createTranslation(player, translation);
       } else if (scrollTop > songContainerHeight + 300) {

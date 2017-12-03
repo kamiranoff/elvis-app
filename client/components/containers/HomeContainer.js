@@ -2,7 +2,6 @@ import { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Home from '../presentationals/Home/Home';
 
-
 const mapStateToProps = ({ songs: { song }, global: { expanded } }) => {
   return {
     song,

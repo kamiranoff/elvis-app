@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
     case REQUEST_SONG:
       return {
         ...state,
-        loading: true,
+        loading: false,
       };
 
     case RECEIVE_SONG:
@@ -55,6 +55,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         song: action.song,
+        editMode: true,
       };
 
     case SEARCH:

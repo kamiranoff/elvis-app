@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { Debounce } from 'react-throttle';
+// import { Debounce } from 'react-throttle';
 
 import styles from './Search.css';
 
@@ -19,14 +19,12 @@ const Search = ({ fields, fetchSongs }) => {
 
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
-      <Debounce time="300" handler="onChange">
-        <input
-          className={styles.Search}
-          placeholder="Search..."
-          type="text"
-          onChange={(event) => handleChange(event.target.value)}
-        />
-      </Debounce>
+      <input
+        className={styles.Search}
+        placeholder="Search..."
+        type="text"
+        onChange={(event) => handleChange(event.target.value)}
+      />
     </form>
   );
 };

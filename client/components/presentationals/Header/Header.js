@@ -8,7 +8,6 @@ import styles from './Header.css';
 const Header = () => {
   return (
     <header className={styles.header}>
-
       <Menu />
     </header>
   );

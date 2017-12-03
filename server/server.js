@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import path from 'path';
 import IntlWrapper from '../client/old.modules/Intl/IntlWrapper';
-const log4js = require('log4js');
+import log4js from 'log4js';
 
 // Webpack Requirements
 import webpack from 'webpack';

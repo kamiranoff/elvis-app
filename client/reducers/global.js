@@ -10,6 +10,8 @@ const initialState = {
   expanded: true,
   scroll: 0,
   splashScreenVisibility: true,
+  documentHeight: '1000px',
+  documentWidth: 1000,
 };
 
 export default (state = initialState, action) => {
